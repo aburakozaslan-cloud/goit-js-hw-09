@@ -22,8 +22,13 @@ form.addEventListener('input', event => {
 form.addEventListener('submit', event => {
   event.preventDefault();
 
-  const email = form.elements.email.value;
-  const message = form.elements.message.value;
+  const email = form.elements.email.value.trim();
+  const message = form.elements.message.value.trim();
+
+  if (!email || !message) {
+    alert('Lütfen tüm alanları doldurun.');
+    return;
+  }
 
   console.log({ email, message });
 
